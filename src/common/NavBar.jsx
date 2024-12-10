@@ -96,9 +96,9 @@ const NavBar = () => {
                     >
                         Register
                     </Link>
-                    <a className="btn bg-[#008854] text-white border-none font-bold">
+                    <Link to={'/signIn'} className="btn bg-[#008854] text-white border-none font-bold">
                         Sign In
-                    </a>
+                    </Link>
                 </div>
             )}
         </div>

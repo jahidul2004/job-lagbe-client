@@ -3,6 +3,7 @@ import login from "../../assets/lottie/login.json";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const { setUser, loginUser } = useContext(AuthContext);
@@ -91,6 +92,12 @@ const Login = () => {
                                 Login
                             </button>
                         </div>
+                        <p>
+                            Don't have an account? please{" "}
+                            <Link to={"/register"} className="font-bold">
+                                Register
+                            </Link>
+                        </p>
                     </form>
                 </div>
             </div>

@@ -84,15 +84,6 @@ const Register = () => {
                         Please register
                     </h1>
                     <form onSubmit={handleRegister} className="card-body">
-                        <div className="w-full flex justify-center">
-                            <button className="w-full btn border-[#008854]">
-                                <FcGoogle />
-                                Login With Google
-                            </button>
-                        </div>
-                        <p className="text-center my-3 text-[#008854]">
-                            ------------Or------------
-                        </p>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Full Name</span>
@@ -173,6 +164,18 @@ const Register = () => {
                         <div className="form-control mt-6">
                             <button className="btn bg-[#008854] text-white font-bold">
                                 Register
+                            </button>
+                        </div>
+
+                        <p>Have an account? please <Link to={'/signIn'} className="font-bold">Login</Link></p>
+
+                        <p className="text-center my-3 text-[#008854]">
+                            ------------Or------------
+                        </p>
+                        <div className="w-full flex justify-center">
+                            <button className="w-full btn border-[#008854]">
+                                <FcGoogle />
+                                Login With Google
                             </button>
                         </div>
                     </form>
