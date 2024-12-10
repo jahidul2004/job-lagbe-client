@@ -81,7 +81,10 @@ const NavBar = () => {
             {user ? (
                 <div>
                     <p>{user.email}</p>
-                    <button onClick={handleSignOut} className="btn btn-error text-white">
+                    <button
+                        onClick={handleSignOut}
+                        className="btn btn-error text-white"
+                    >
                         Sign Out
                     </button>
                 </div>
