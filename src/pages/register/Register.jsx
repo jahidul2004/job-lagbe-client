@@ -3,19 +3,22 @@ import registerLottie from "../../assets/lottie/register.json";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import AuthContext from "../../context/AuthContext/AuthContext";
 
 const Register = () => {
+    const { registerUser } = useContext(AuthContext);
     const handleRegister = (event) => {
         event.preventDefault();
 
         // Get form data
-        const formData = new FormData(event.target);
+        const form = event.target;
 
-        const name = formData.get("name");
-        const email = formData.get("email");
-        const username = formData.get("username");
-        const password = formData.get("password");
-        const terms = formData.get("terms");
+        const name = form.name.value;
+        const email = form.email.value;
+        const username = form.username.value;
+        const password = form.password.value;
+        const terms = form.terms.checked;
 
         console.log({ name, email, username, password, terms });
 
@@ -31,12 +34,38 @@ const Register = () => {
             }
         }
 
-        if (validatePassword(password)) {
-            console.log("Password is valid");
+        if (validatePassword(password) && terms) {
+            registerUser(email, password)
+                .then((data) => {
+                    console.log(data);
+
+                    if (data.user) {
+                        Swal.fire({
+                            title: "Success!",
+                            text: "You have successfully registered",
+                            icon: "success",
+                            confirmButtonText: "Close",
+                            confirmButtonColor: "#008854",
+                        });
+                        form.reset();
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+
+                    Swal.fire({
+                        title: "Oops!",
+                        text: error.message,
+                        icon: "error",
+                        confirmButtonText: "Close",
+                        confirmButtonColor: "#008854",
+                    });
+                    form.reset();
+                });
         } else {
             Swal.fire({
                 title: "Oops!",
-                text: "Password must contain at least 6 characters, including uppercase, lowercase, numbers and special characters",
+                text: "Password must contain at least 6 characters, including uppercase, lowercase, numbers and special characters and terms must be agreed",
                 icon: "error",
                 confirmButtonText: "Close",
                 confirmButtonColor: "#008854",
