@@ -1,14 +1,10 @@
-import logo from '../assets/logo.png';
+import logo from "../assets/logo.png";
 
 const Footer = () => {
     return (
         <footer className="footer bg-base-200 text-base-content p-10">
             <aside>
-                <img
-                    className="w-[60px] h-[60px]"
-                    src={logo}
-                    alt=""
-                />
+                <img className="w-[60px] h-[60px]" src={logo} alt="" />
                 <p className="text-xl font-bold">
                     Job Lagbe?
                     <br />
@@ -35,11 +31,11 @@ const Footer = () => {
                 <h6 className="footer-title">Legal</h6>
                 <a className="link link-hover">Terms of use</a>
                 <p>Subscribe for receive job notification</p>
-                <div className="join">
+                <div className="flex flex-col justify-center md:flex-row gap-2 md:join">
                     <input
                         type="text"
-                        placeholder="username@site.com"
-                        className="input input-bordered join-item"
+                        placeholder="job@lagbe.com"
+                        className="w-max input input-bordered join-item"
                     />
                     <button className="btn border hover:text-[#008854] border-[#008854] bg-[#008854] text-white join-item">
                         Subscribe
