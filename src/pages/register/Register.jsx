@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import registerLottie from "../../assets/lottie/register.json";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Register = () => {
     const handleRegister = (event) => {
@@ -17,6 +18,30 @@ const Register = () => {
         const terms = formData.get("terms");
 
         console.log({ name, email, username, password, terms });
+
+        // Password validation
+        function validatePassword(password) {
+            const regex =
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{6,}$/;
+
+            if (regex.test(password)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        if (validatePassword(password)) {
+            console.log("Password is valid");
+        } else {
+            Swal.fire({
+                title: "Oops!",
+                text: "Password must contain at least 6 characters, including uppercase, lowercase, numbers and special characters",
+                icon: "error",
+                confirmButtonText: "Close",
+                confirmButtonColor: "#008854",
+            });
+        }
     };
     return (
         <div className="hero bg-base-200 min-h-screen">
