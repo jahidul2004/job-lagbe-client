@@ -72,6 +72,7 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-[#008854] text-2xl font-bold">
+                    <img className="w-[40px] h-[40px]" src="https://i.ibb.co.com/hYt7z5f/logo.png" alt="" />
                     Job Lagbe?
                 </a>
             </div>
@@ -96,7 +97,10 @@ const NavBar = () => {
                     >
                         Register
                     </Link>
-                    <Link to={'/signIn'} className="btn bg-[#008854] text-white border-none font-bold">
+                    <Link
+                        to={"/signIn"}
+                        className="btn bg-[#008854] text-white border-none font-bold"
+                    >
                         Sign In
                     </Link>
                 </div>
