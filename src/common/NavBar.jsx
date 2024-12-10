@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext/AuthContext";
 import logo from "../assets/logo.png";
+import profile from "../assets/man.png";
 
 const NavBar = () => {
     const { user, signOutUser } = useContext(AuthContext);
@@ -81,8 +82,16 @@ const NavBar = () => {
                 <ul className="menu menu-horizontal px-1">{links}</ul>
             </div>
             {user ? (
-                <div>
-                    <p>{user.email}</p>
+                <div className="navbar-end">
+                    <div
+                        title={user.displayName}
+                        className="border mr-3 border-[#008854] p-1 w-[50px] h-[50px] rounded-full"
+                    >
+                        <img
+                            className="rounded-full"
+                            src={user?.photoURL ?? profile}
+                        />
+                    </div>
                     <button
                         onClick={handleSignOut}
                         className="btn btn-error text-white"
