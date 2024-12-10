@@ -7,7 +7,7 @@ import { useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
 
 const Register = () => {
-    const { registerUser } = useContext(AuthContext);
+    const { registerUser, setUser } = useContext(AuthContext);
     const handleRegister = (event) => {
         event.preventDefault();
 
@@ -48,6 +48,7 @@ const Register = () => {
                             confirmButtonColor: "#008854",
                         });
                         form.reset();
+                        setUser(data.user);
                     }
                 })
                 .catch((error) => {

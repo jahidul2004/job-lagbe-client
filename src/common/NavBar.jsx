@@ -1,14 +1,34 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../context/AuthContext/AuthContext";
 
 const NavBar = () => {
+    const { user } = useContext(AuthContext);
 
-    const links = <>
-        <li><Link>Home</Link></li>
-        <li><Link>About</Link></li>
-        <li><Link>Find a Job</Link></li>
-        <li><Link>Post a Job</Link></li>
-        <li className="md:hidden"><Link to={'/register'} className="btn bg-[#008854] text-white font-bold">Register</Link></li>
-    </>
+    const links = (
+        <>
+            <li>
+                <Link>Home</Link>
+            </li>
+            <li>
+                <Link>About</Link>
+            </li>
+            <li>
+                <Link>Find a Job</Link>
+            </li>
+            <li>
+                <Link>Post a Job</Link>
+            </li>
+            <li className="md:hidden">
+                <Link
+                    to={"/register"}
+                    className="btn bg-[#008854] text-white font-bold"
+                >
+                    Register
+                </Link>
+            </li>
+        </>
+    );
 
     return (
         <div className="navbar bg-base-100">
@@ -41,17 +61,30 @@ const NavBar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-[#008854] text-2xl font-bold">Job Lagbe?</a>
+                <a className="btn btn-ghost text-[#008854] text-2xl font-bold">
+                    Job Lagbe?
+                </a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    {links}
-                </ul>
+                <ul className="menu menu-horizontal px-1">{links}</ul>
             </div>
-            <div className="navbar-end gap-8">
-                <Link to={'/register'} className="hidden md:block hover:text-[#008854]">Register</Link>
-                <a className="btn bg-[#008854] text-white border-none font-bold">Sign In</a>
-            </div>
+            {user ? (
+                <div>
+                    <p>{user.email}</p>
+                </div>
+            ) : (
+                <div className="navbar-end gap-8">
+                    <Link
+                        to={"/register"}
+                        className="hidden md:block hover:text-[#008854]"
+                    >
+                        Register
+                    </Link>
+                    <a className="btn bg-[#008854] text-white border-none font-bold">
+                        Sign In
+                    </a>
+                </div>
+            )}
         </div>
     );
 };
