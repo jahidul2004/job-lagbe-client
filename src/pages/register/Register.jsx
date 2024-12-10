@@ -7,7 +7,7 @@ import { useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
 
 const Register = () => {
-    const { registerUser, setUser } = useContext(AuthContext);
+    const { registerUser, setUser, signInWithGoogle } = useContext(AuthContext);
     const handleRegister = (event) => {
         event.preventDefault();
 
@@ -73,6 +73,18 @@ const Register = () => {
             });
         }
     };
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then((data) => {
+                console.log(data);
+                setUser(data.user);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -167,13 +179,21 @@ const Register = () => {
                             </button>
                         </div>
 
-                        <p>Have an account? please <Link to={'/signIn'} className="font-bold">Login</Link></p>
+                        <p>
+                            Have an account? please{" "}
+                            <Link to={"/signIn"} className="font-bold">
+                                Login
+                            </Link>
+                        </p>
 
                         <p className="text-center my-3 text-[#008854]">
                             ------------Or------------
                         </p>
                         <div className="w-full flex justify-center">
-                            <button className="w-full btn border-[#008854]">
+                            <button
+                                onClick={handleGoogleSignIn}
+                                className="w-full btn border-[#008854]"
+                            >
                                 <FcGoogle />
                                 Login With Google
                             </button>
