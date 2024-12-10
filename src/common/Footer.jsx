@@ -1,10 +1,12 @@
+import logo from '../assets/logo.png';
+
 const Footer = () => {
     return (
         <footer className="footer bg-base-200 text-base-content p-10">
             <aside>
                 <img
                     className="w-[60px] h-[60px]"
-                    src="https://i.ibb.co.com/hYt7z5f/logo.png"
+                    src={logo}
                     alt=""
                 />
                 <p className="text-xl font-bold">
