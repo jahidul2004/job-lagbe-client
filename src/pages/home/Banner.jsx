@@ -1,12 +1,17 @@
 import bannerImg3 from "../../assets/banner_asset/banner3.jpg";
 import bannerImg4 from "../../assets/banner_asset/banner4.jpg";
 import { motion, easeInOut } from "framer-motion";
+import bannerLottie from "../../assets/lottie/banner.json";
+import Lottie from "lottie-react";
 
 const Banner = () => {
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="w-full md:w-1/2">
+                <div className="block md:hidden">
+                    <Lottie animationData={bannerLottie}></Lottie>
+                </div>
+                <div className="hidden md:block w-full md:w-1/2">
                     <motion.img
                         animate={{ y: [30, 60, 30] }}
                         transition={{
@@ -42,11 +47,11 @@ const Banner = () => {
                     <div className="flex flex-col justify-center md:flex-row gap-2 md:join">
                         <input
                             type="text"
-                            placeholder="job@lagbe.com"
-                            className="w-max input border-[#008854] join-item"
+                            placeholder="Designer, Web, IOS, Developer"
+                            className="w-full input border-[#008854] join-item"
                         />
                         <button className="btn border hover:text-[#008854] border-[#008854] bg-[#008854] text-white join-item">
-                            Subscribe
+                            Search
                         </button>
                     </div>
                     <p className="mt-8">

@@ -191,6 +191,7 @@ const Register = () => {
                         </p>
                         <div className="w-full flex justify-center">
                             <button
+                                type="button"
                                 onClick={handleGoogleSignIn}
                                 className="w-full btn border-[#008854]"
                             >
