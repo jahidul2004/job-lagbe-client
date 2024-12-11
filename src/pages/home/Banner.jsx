@@ -1,6 +1,3 @@
-import bannerImg3 from "../../assets/banner_asset/banner3.jpg";
-import bannerImg4 from "../../assets/banner_asset/banner4.jpg";
-import { motion, easeInOut } from "framer-motion";
 import bannerLottie from "../../assets/lottie/banner.json";
 import Lottie from "lottie-react";
 
@@ -8,30 +5,8 @@ const Banner = () => {
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="block md:hidden">
+                <div className="w-full md:w-1/2">
                     <Lottie animationData={bannerLottie}></Lottie>
-                </div>
-                <div className="hidden md:block w-full md:w-1/2">
-                    <motion.img
-                        animate={{ y: [30, 60, 30] }}
-                        transition={{
-                            ease: easeInOut,
-                            duration: 10,
-                            repeat: Infinity,
-                        }}
-                        src={bannerImg3}
-                        className="border-l-[6px] border-b-[6px] border-[#008854] max-w-sm rounded-lg shadow-2xl"
-                    />
-                    <motion.img
-                        animate={{ x: [50, 80, 50] }}
-                        transition={{
-                            ease: easeInOut,
-                            duration: 10,
-                            repeat: Infinity,
-                        }}
-                        src={bannerImg4}
-                        className="hidden md:block border-l-[6px] border-b-[6px] border-[#008854] max-w-sm rounded-lg shadow-2xl"
-                    />
                 </div>
                 <div className="w-full md:w-1/2">
                     <h1 className="text-3xl md:text-6xl font-bold">

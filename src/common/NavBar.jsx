@@ -31,14 +31,26 @@ const NavBar = () => {
             <li>
                 <Link>Post a Job</Link>
             </li>
-            <li className="md:hidden">
-                <Link
-                    to={"/register"}
-                    className="btn bg-[#008854] text-white font-bold"
-                >
-                    Register
-                </Link>
-            </li>
+
+            {user ? (
+                <li>
+                    <button
+                        onClick={handleSignOut}
+                        className="md:hidden btn btn-error text-white"
+                    >
+                        Sign Out
+                    </button>
+                </li>
+            ) : (
+                <li className="md:hidden">
+                    <Link
+                        to={"/register"}
+                        className="btn bg-[#008854] text-white font-bold"
+                    >
+                        Register
+                    </Link>
+                </li>
+            )}
         </>
     );
 
@@ -94,7 +106,7 @@ const NavBar = () => {
                     </div>
                     <button
                         onClick={handleSignOut}
-                        className="btn btn-error text-white"
+                        className="hidden md:block btn btn-error text-white"
                     >
                         Sign Out
                     </button>
