@@ -4,33 +4,49 @@ import Home from "../pages/home/Home";
 import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
 import JobDetails from "../pages/jobDetails/JobDetails";
+import PrivateRoute from "./PrivateRoute";
+import PrivateLoginRegister from "./PrivateLoginRegister";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
-        errorElement:<h2>404 not found</h2>,
-        children:[
+        errorElement: <h2>404 not found</h2>,
+        children: [
             {
                 path: "/",
-                element:<Home></Home>
+                element: <Home></Home>,
             },
             {
-                path:"/register",
-                element:<Register></Register>
+                path: "/register",
+                element: (
+                    <PrivateLoginRegister>
+                        <Register></Register>
+                    </PrivateLoginRegister>
+                ),
             },
             {
-                path:"/signIn",
-                element:<Login></Login>
+                path: "/signIn",
+                element: (
+                    <PrivateLoginRegister>
+                        <Login></Login>
+                    </PrivateLoginRegister>
+                ),
             },
             {
-                path:'/jobs/:id',
-                element:<JobDetails></JobDetails>,
-                loader: async ({params}) => {
-                    return await fetch(`http://localhost:5000/jobs/${params.id}`)
-                }
-            }
-        ]
+                path: "/jobs/:id",
+                element: (
+                    <PrivateRoute>
+                        <JobDetails></JobDetails>
+                    </PrivateRoute>
+                ),
+                loader: async ({ params }) => {
+                    return await fetch(
+                        `http://localhost:5000/jobs/${params.id}`
+                    );
+                },
+            },
+        ],
     },
 ]);
 
