@@ -1,7 +1,7 @@
 import { BiSolidWatch } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
 import { FiWatch } from "react-icons/fi";
-import { GrUserExpert } from "react-icons/gr";
+import { GrLocation, GrUserExpert } from "react-icons/gr";
 import { LuBadgeDollarSign } from "react-icons/lu";
 import {
     MdOutlineManageAccounts,
@@ -9,8 +9,27 @@ import {
     MdOutlineUpdate,
 } from "react-icons/md";
 import { PiBagBold, PiBuildingOfficeFill } from "react-icons/pi";
+import { useLoaderData } from "react-router-dom";
 
 const JobDetails = () => {
+    const data = useLoaderData();
+    const {
+        _id,
+        title,
+        location,
+        jobType,
+        category,
+        applicationDeadline,
+        salaryRange,
+        description,
+        company,
+        requirements,
+        status,
+        company_logo,
+        hr_email,
+        hr_name,
+    } = data;
+
     return (
         <div className="container px-4 md:mx-auto my-10">
             {/* Header area */}
@@ -25,13 +44,12 @@ const JobDetails = () => {
                 <div className="flex justify-between flex-col md:flex-row">
                     <div className="flex flex-col gap-2">
                         <h1 className="text-2xl font-bold">
-                            Senior Full Stack Engineer, Creator Success Full
-                            Time
+                            {title} - {category}
                         </h1>
                         <div className="flex gap-2 font-semibold text-[#000000ab]">
                             <span className="flex items-center gap-2">
                                 <PiBagBold className="text-[#008854]" />
-                                Remote
+                                {jobType}
                             </span>
                             <span className="flex items-center gap-2">
                                 <BiSolidWatch className="text-[#008854]" />3 min
@@ -62,56 +80,57 @@ const JobDetails = () => {
                                 <PiBuildingOfficeFill className="text-[#008854]" />
                                 Industry:
                             </span>
-                            Mechanical / Auto / Automotive, Civil / Construction
+                            {company}
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="flex items-center gap-4 text-[#000000ab]">
                                 <LuBadgeDollarSign className="text-[#008854]" />
                                 Salary:
                             </span>
-                            $800 - $1000
+                            {salaryRange.min} - {salaryRange.max}
+                            {salaryRange.currency.toUpperCase()}
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="flex items-center gap-4 text-[#000000ab]">
                                 <MdOutlineTypeSpecimen className="text-[#008854]" />
                                 Job Type:
                             </span>
-                            Permanent
+                            {jobType}
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="flex items-center gap-4 text-[#000000ab]">
                                 <MdOutlineUpdate className="text-[#008854]" />
                                 Updated:
                             </span>
-                            10/07/2022
+                            {status}
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="flex items-center gap-4 text-[#000000ab]">
                                 <MdOutlineManageAccounts className="text-[#008854]" />
                                 Job Level:
                             </span>
-                            Experienced (Non - Manager)
+                            Experienced C.G
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="flex items-center gap-4 text-[#000000ab]">
                                 <GrUserExpert className="text-[#008854]" />
                                 Experience:
                             </span>
-                            1 - 2 years
+                            1 - 2 years.C.G
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="flex items-center gap-4 text-[#000000ab]">
                                 <FiWatch className="text-[#008854]" />
                                 Deadline:
                             </span>
-                            10/08/2022
+                            {applicationDeadline}
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="flex items-center gap-4 text-[#000000ab]">
-                                <CiLocationOn className="text-[#008854]" />
+                                <GrLocation className="text-[#008854]" />
                                 Location:
                             </span>
-                            Khilgaon,Dhaka
+                            {location}
                         </div>
                     </div>
                 </div>
@@ -120,16 +139,13 @@ const JobDetails = () => {
                     {/* Header area */}
                     <div className="flex gap-2 border-b pb-2">
                         <div className="w-[50px] h-[50px] border rounded-lg flex justify-center items-center p-1">
-                            <img
-                                src="https://i.ibb.co/MhsV6wz/microsoft.png"
-                                alt=""
-                            />
+                            <img src={company_logo} alt="" />
                         </div>
                         <div>
-                            <h1 className="text-xl font-bold">Company Name</h1>
-                            <p className="text-[#000000ab] flex items-center">
-                                <CiLocationOn />
-                                Address
+                            <h1 className="text-xl font-bold">{company}</h1>
+                            <p className="text-[#000000ab] flex items-center font-semibold">
+                                <GrLocation />
+                                {location}
                             </p>
                         </div>
                     </div>
@@ -152,12 +168,9 @@ const JobDetails = () => {
                     {/* Address area */}
                     <div className="mt-5">
                         <ul className="list-inside list-disc font-semibold text-[#000000ab]">
-                            <li>
-                                205 North Michigan Avenue, Suite 810 Chicago,
-                                60601, USA
-                            </li>
-                            <li>Phone:(123) 456-7890</li>
-                            <li>Email: contact@Evara.com</li>
+                            <li>{location}</li>
+                            <li>Phone:(123) 456-7890 C.G</li>
+                            <li>Email: {hr_email}</li>
                         </ul>
                     </div>
                     {/* Address area end */}

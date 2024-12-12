@@ -2,9 +2,11 @@ import { BsFillLightningChargeFill } from "react-icons/bs";
 import { FaRegClock } from "react-icons/fa";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { PiBagSimpleLight } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 const HotJobCard = (job) => {
     const {
+        _id,
         title,
         location,
         jobType,
@@ -88,9 +90,9 @@ const HotJobCard = (job) => {
                     </h1>
                 </div>
                 <div className="w-full">
-                    <button className="btn font-bold w-full bg-[#0088542c] text-[#008854]">
+                    <Link to={`/jobs/${_id}`} className="btn font-bold w-full bg-[#0088542c] text-[#008854]">
                         Apply Now
-                    </button>
+                    </Link>
                 </div>
             </div>
             {/* Footer area end */}
