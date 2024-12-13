@@ -23,13 +23,13 @@ const NavBar = () => {
                 <Link>Home</Link>
             </li>
             <li>
-                <Link>About</Link>
-            </li>
-            <li>
                 <Link>Find a Job</Link>
             </li>
             <li>
-                <Link to={'/myApplication'}>My Application</Link>
+                <Link to={'/addJob'}>Add Job</Link>
+            </li>
+            <li>
+                <Link to={"/myApplication"}>My Application</Link>
             </li>
 
             {user ? (
