@@ -74,9 +74,9 @@ const JobDetails = () => {
                         </div>
                     </div>
                     <div className="mt-2 md:mt-0">
-                        <button className="btn btn-success text-white font-bold">
+                        <Link to={`/jobs/apply/${_id}`} className="btn btn-success text-white font-bold">
                             Apply Now
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -307,7 +307,7 @@ const JobDetails = () => {
                                             to={`/jobs/${job._id}`}
                                             className="btn btn-success text-white font-bold"
                                         >
-                                            Apply
+                                            Explore
                                         </Link>
                                     </div>
                                 </div>

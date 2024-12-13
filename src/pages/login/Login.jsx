@@ -3,10 +3,16 @@ import login from "../../assets/lottie/login.json";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const { setUser, loginUser } = useContext(AuthContext);
+
+    const location = useLocation();
+    
+    const from = location.state || { pathname: "/" };
+
+    const navigate = useNavigate();
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -30,6 +36,7 @@ const Login = () => {
                         confirmButtonColor: "#008854",
                     });
                     form.reset();
+                    navigate(from);
                 }
             })
             .catch((error) => {

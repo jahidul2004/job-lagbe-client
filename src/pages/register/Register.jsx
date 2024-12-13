@@ -1,12 +1,19 @@
 import Lottie from "lottie-react";
 import registerLottie from "../../assets/lottie/register.json";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
 
 const Register = () => {
+
+    const navigate = useNavigate();
+
+    const location = useLocation();
+    const from = location.state || { pathname: "/" };
+    console.log(from);
+
     const { registerUser, setUser, signInWithGoogle } = useContext(AuthContext);
     const handleRegister = (event) => {
         event.preventDefault();
@@ -37,8 +44,7 @@ const Register = () => {
         if (validatePassword(password) && terms) {
             registerUser(email, password)
                 .then((data) => {
-                    console.log(data);
-
+                    navigate(from);
                     if (data.user) {
                         Swal.fire({
                             title: "Success!",
