@@ -10,6 +10,7 @@ import JobApply from "../pages/jobApply/JobApply";
 import MyApplication from "../pages/myApplication/MyApplication";
 import AddJob from "../pages/addJob/AddJob";
 import MyPostedJobs from "../pages/myPostedJobs/MyPostedJobs";
+import AllJobs from "../pages/allJobs/AllJobs";
 
 const router = createBrowserRouter([
     {
@@ -81,6 +82,13 @@ const router = createBrowserRouter([
                         <MyPostedJobs></MyPostedJobs>
                     </PrivateRoute>
                 ),
+            },
+            {
+                path: "/allJobs",
+                element: <AllJobs></AllJobs>,
+                loader: async () => {
+                    return await fetch("http://localhost:5000/jobs");
+                },
             },
         ],
     },
