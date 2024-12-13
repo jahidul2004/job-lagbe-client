@@ -46,7 +46,7 @@ const JobApply = () => {
                         confirmButtonText: "Close",
                     });
                     form.reset();
-                    navigate("/");
+                    navigate("/myApplication");
                 } else {
                     Swal.fire({
                         title: "Error!",

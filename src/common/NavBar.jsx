@@ -29,7 +29,7 @@ const NavBar = () => {
                 <Link>Find a Job</Link>
             </li>
             <li>
-                <Link>Post a Job</Link>
+                <Link to={'/myApplication'}>My Application</Link>
             </li>
 
             {user ? (
