@@ -1,7 +1,5 @@
-import { div } from "motion/react-client";
 import { useEffect, useState } from "react";
 import { BiSolidWatch } from "react-icons/bi";
-import { CiLocationOn } from "react-icons/ci";
 import { FiWatch } from "react-icons/fi";
 import { GrLocation, GrUserExpert } from "react-icons/gr";
 import { LuBadgeDollarSign } from "react-icons/lu";
@@ -29,6 +27,11 @@ const JobDetails = () => {
         status,
         company_logo,
         hr_email,
+        jobImage,
+        jobLevel,
+        requiredExperience,
+        responsibilities,
+        hr_phone,
     } = data;
 
     const [similarJobs, setSimilarJobs] = useState([]);
@@ -53,7 +56,7 @@ const JobDetails = () => {
                 <div className="h-[200px] md:h-[400px] rounded-lg w-full mb-8">
                     <img
                         className="w-full h-full rounded-lg object-cover"
-                        src="https://i.ibb.co.com/q9410gr/thumb.png"
+                        src={jobImage}
                         alt=""
                     />
                 </div>
@@ -74,7 +77,10 @@ const JobDetails = () => {
                         </div>
                     </div>
                     <div className="mt-2 md:mt-0">
-                        <Link to={`/jobs/apply/${_id}`} className="btn btn-success text-white font-bold">
+                        <Link
+                            to={`/jobs/apply/${_id}`}
+                            className="btn btn-success text-white font-bold"
+                        >
                             Apply Now
                         </Link>
                     </div>
@@ -126,14 +132,14 @@ const JobDetails = () => {
                                     <MdOutlineManageAccounts className="text-[#008854]" />
                                     Job Level:
                                 </span>
-                                Experienced C.G
+                                {jobLevel}
                             </div>
                             <div className="flex items-center gap-2">
                                 <span className="flex items-center gap-4 text-[#000000ab]">
                                     <GrUserExpert className="text-[#008854]" />
                                     Experience:
                                 </span>
-                                1 - 2 years.C.G
+                                {requiredExperience}
                             </div>
                             <div className="flex items-center gap-2">
                                 <span className="flex items-center gap-4 text-[#000000ab]">
@@ -171,65 +177,28 @@ const JobDetails = () => {
                         </div>
                         <div className="mt-4">
                             <h1 className="text-xl font-bold mb-2">
+                                Job Description
+                            </h1>
+                            <p className="text-[#000000ab]">{description}</p>
+                        </div>
+                        <div className="mt-4">
+                            <h1 className="text-xl font-bold mb-2">
                                 Essential Knowledge, Skills, and Experience
                             </h1>
                             <ul className="list-disc list-inside text-[#000000ab]">
-                                <li>
-                                    A portfolio demonstrating
-                                    well-thought-through and polished end-to-end
-                                    customer journeys
-                                </li>
-                                <li>
-                                    5+ years of industry experience in
-                                    interactive design and/or visual design
-                                </li>
-                                <li>Excellent interpersonal skills</li>
-                                <li>
-                                    Aware of trends in mobile, communications,
-                                    and collaboration
-                                </li>
-                                <li>
-                                    Ability to create highly polished design
-                                    prototypes, mockups, and other communication
-                                    artifacts
-                                </li>
-                                <li>
-                                    The ability to scope and estimate efforts
-                                    accurately and prioritize tasks and goals
-                                    independently
-                                </li>
-                                <li>
-                                    History of impacting shipping products with
-                                    your work
-                                </li>
-                                <li>
-                                    A Bachelor's Degree in Design (or related
-                                    field) or equivalent professional experience
-                                </li>
-                                <li>
-                                    Proficiency in a variety of design tools
-                                    such as Figma, Photoshop, Illustrator, and
-                                    Sketch
-                                </li>
+                                {requirements.map((requirement) => (
+                                    <li>{requirement}</li>
+                                ))}
                             </ul>
                         </div>
                         <div className="mt-4">
                             <h1 className="text-xl font-bold">
-                                Preferred Experience
+                                Responsibilities
                             </h1>
                             <ul className="list-disc list-inside text-[#000000ab]">
-                                <li>
-                                    Designing user experiences for enterprise
-                                    software/services
-                                </li>
-                                <li>
-                                    Creating and applying established design
-                                    principles and interaction patterns
-                                </li>
-                                <li>
-                                    Aligning or influencing design thinking with
-                                    teams working in other geographies
-                                </li>
+                                {responsibilities.map((responsibility) => (
+                                    <li>{responsibility}</li>
+                                ))}
                             </ul>
                         </div>
                     </div>
@@ -270,7 +239,7 @@ const JobDetails = () => {
                         <div className="mt-5">
                             <ul className="list-inside list-disc font-semibold text-[#000000ab]">
                                 <li>{location}</li>
-                                <li>Phone:(123) 456-7890 C.G</li>
+                                <li>Phone:{hr_phone}</li>
                                 <li>Email: {hr_email}</li>
                             </ul>
                         </div>
