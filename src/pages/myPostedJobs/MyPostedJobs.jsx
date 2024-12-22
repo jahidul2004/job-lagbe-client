@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { MdDeleteForever } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const MyPostedJobs = () => {
     const [jobs, setJobs] = useState([]);
@@ -72,9 +73,12 @@ const MyPostedJobs = () => {
                             <button className="btn btn-success text-white">
                                 Edit job
                             </button>
-                            <button className="btn col-span-2 md:col-span-1 btn-success text-white">
+                            <Link
+                                to={`/viewApplications/${job._id}`}
+                                className="btn col-span-2 md:col-span-1 btn-success text-white"
+                            >
                                 View Applications
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 ))}
