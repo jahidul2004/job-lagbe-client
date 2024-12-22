@@ -15,19 +15,28 @@ const ViewApplications = () => {
                 {data.map((job) => (
                     <div
                         key={job._id}
-                        className="bg-success p-4 mx-2 rounded-lg"
+                        className="border-l-8 border-success p-4 mx-2 shadow-lg"
                     >
                         <div>
                             <h1 className="text-xl font-bold">{job.name}</h1>
-                            <p className="font-semibold">
+                            <Link
+                                title="Click to send email"
+                                to={
+                                    "https://mail.google.com/mail/u/0/#inbox?compose=new"
+                                }
+                                className="font-bold hover:text-success"
+                            >
                                 {job.applicantEmail}
-                            </p>
+                            </Link>
                         </div>
                         <div>
                             <p className="font-semibold">
                                 Github URL:
                                 {
-                                    <Link to={`${job.githubURL}`}>
+                                    <Link
+                                        className="hover:text-error"
+                                        to={`${job.githubURL}`}
+                                    >
                                         {job.githubURL}
                                     </Link>
                                 }
@@ -35,7 +44,10 @@ const ViewApplications = () => {
                             <p className="font-semibold">
                                 Linked In URL:
                                 {
-                                    <Link to={`${job.linkedInURL}`}>
+                                    <Link
+                                        className="hover:text-error"
+                                        to={`${job.linkedInURL}`}
+                                    >
                                         {job.githubURL}
                                     </Link>
                                 }
@@ -43,7 +55,10 @@ const ViewApplications = () => {
                             <p className="font-semibold">
                                 Resume URL:
                                 {
-                                    <Link to={`${job.resumeURL}`}>
+                                    <Link
+                                        className="hover:text-error"
+                                        to={`${job.resumeURL}`}
+                                    >
                                         {job.githubURL}
                                     </Link>
                                 }
