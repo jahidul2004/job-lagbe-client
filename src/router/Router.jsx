@@ -98,6 +98,11 @@ const router = createBrowserRouter([
                         <ViewApplications></ViewApplications>
                     </PrivateRoute>
                 ),
+                loader: async ({ params }) => {
+                    return await fetch(
+                        `http://localhost:5000/job-application?jobId=${params.jobId}`
+                    );
+                },
             },
         ],
     },
