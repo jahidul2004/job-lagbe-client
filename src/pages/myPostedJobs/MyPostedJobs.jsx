@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import { MdDeleteForever } from "react-icons/md";
 
 const MyPostedJobs = () => {
     const [jobs, setJobs] = useState([]);
@@ -64,12 +65,15 @@ const MyPostedJobs = () => {
                                 )}
                             </p>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <button className="btn btn-error text-white">
-                                Delete job
+                        <div className="grid grid-cols-2 md:grid-cols-3 items-center gap-2">
+                            <button className="btn btn-error">
+                                <MdDeleteForever className="text-xl text-white" />
                             </button>
                             <button className="btn btn-success text-white">
                                 Edit job
+                            </button>
+                            <button className="btn col-span-2 md:col-span-1 btn-success text-white">
+                                View Applications
                             </button>
                         </div>
                     </div>
