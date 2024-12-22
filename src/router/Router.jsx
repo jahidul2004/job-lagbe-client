@@ -100,7 +100,7 @@ const router = createBrowserRouter([
                 ),
                 loader: async ({ params }) => {
                     return await fetch(
-                        `http://localhost:5000/job-application?jobId=${params.jobId}`
+                        `http://localhost:5000/job-applications/jobs/${params.jobId}`
                     );
                 },
             },
