@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ViewApplications = () => {
     const data = useLoaderData();
@@ -6,8 +6,52 @@ const ViewApplications = () => {
     console.log("Data is:", data);
 
     return (
-        <div>
-            <h1>{data.length}</h1>
+        <div className="my-10">
+            <h1 className="text-3xl font-bold text-center py-3 mb-10 text-success">
+                Application for this job
+            </h1>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-2 md:mx-5">
+                {data.map((job) => (
+                    <div
+                        key={job._id}
+                        className="bg-success p-4 mx-2 rounded-lg"
+                    >
+                        <div>
+                            <h1 className="text-xl font-bold">{job.name}</h1>
+                            <p className="font-semibold">
+                                {job.applicantEmail}
+                            </p>
+                        </div>
+                        <div>
+                            <p className="font-semibold">
+                                Github URL:
+                                {
+                                    <Link to={`${job.githubURL}`}>
+                                        {job.githubURL}
+                                    </Link>
+                                }
+                            </p>
+                            <p className="font-semibold">
+                                Linked In URL:
+                                {
+                                    <Link to={`${job.linkedInURL}`}>
+                                        {job.githubURL}
+                                    </Link>
+                                }
+                            </p>
+                            <p className="font-semibold">
+                                Resume URL:
+                                {
+                                    <Link to={`${job.resumeURL}`}>
+                                        {job.githubURL}
+                                    </Link>
+                                }
+                            </p>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
