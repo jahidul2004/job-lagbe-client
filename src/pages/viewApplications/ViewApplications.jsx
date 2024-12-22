@@ -19,16 +19,15 @@ const ViewApplications = () => {
                     >
                         <div>
                             <h1 className="text-xl font-bold">{job.name}</h1>
-                            <Link
+                            <a
+                                href={`mailto:${job.applicantEmail}`}
                                 title="Click to send email"
-                                to={
-                                    "https://mail.google.com/mail/u/0/#inbox?compose=new"
-                                }
                                 className="font-bold hover:text-success"
                             >
                                 {job.applicantEmail}
-                            </Link>
+                            </a>
                         </div>
+
                         <div>
                             <p className="font-semibold">
                                 Github URL:
