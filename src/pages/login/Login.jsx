@@ -4,12 +4,13 @@ import { useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
     const { setUser, loginUser } = useContext(AuthContext);
 
     const location = useLocation();
-    
+
     const from = location.state || { pathname: "/" };
 
     const navigate = useNavigate();
@@ -26,6 +27,17 @@ const Login = () => {
             .then((data) => {
                 console.log(data);
                 data.user && setUser(data.user);
+
+                // Token related to the user
+                const user = { email: email };
+                axios
+                    .post("http://localhost:5000/jwt", user, {
+                        withCredentials: true,
+                    })
+                    .then((data) => {
+                        console.log(data.data);
+                        // localStorage.setItem("token", data.data.token);
+                    });
 
                 if (data.user) {
                     Swal.fire({
