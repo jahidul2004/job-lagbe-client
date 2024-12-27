@@ -5,9 +5,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
+import axios from "axios";
 
 const Register = () => {
-
     const navigate = useNavigate();
 
     const location = useLocation();
@@ -44,6 +44,16 @@ const Register = () => {
         if (validatePassword(password) && terms) {
             registerUser(email, password)
                 .then((data) => {
+                    // Token related to the user
+                    const user = { email: email };
+                    axios
+                        .post("http://localhost:5000/jwt", user, {
+                            withCredentials: true,
+                        })
+                        .then((data) => {
+                            console.log(data.data);
+                            // localStorage.setItem("token", data.data.token);
+                        });
                     navigate(from);
                     if (data.user) {
                         Swal.fire({
@@ -85,6 +95,16 @@ const Register = () => {
             .then((data) => {
                 console.log(data);
                 setUser(data.user);
+                // Token related to the user
+                const user = { email: data.user.email };
+                axios
+                    .post("http://localhost:5000/jwt", user, {
+                        withCredentials: true,
+                    })
+                    .then((data) => {
+                        console.log(data.data);
+                        // localStorage.setItem("token", data.data.token);
+                    });
             })
             .catch((error) => {
                 console.log(error);
