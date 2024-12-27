@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const MyPostedJobs = () => {
     const [jobs, setJobs] = useState([]);
@@ -11,11 +12,13 @@ const MyPostedJobs = () => {
     console.log(user.email);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/jobs?email=${user.email}`)
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                setJobs(data);
+        axios
+            .get(`http://localhost:5000/jobs?email=${user.email}`,{
+                withCredentials: true,
+            })
+            .then((res) => {
+                console.log(res.data);
+                setJobs(res.data);
             });
     }, []);
     return (

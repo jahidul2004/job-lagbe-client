@@ -1,6 +1,5 @@
 import { BsFillLightningChargeFill } from "react-icons/bs";
 import { FaRegClock } from "react-icons/fa";
-import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { PiBagSimpleLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
@@ -22,12 +21,7 @@ const HotJobCard = (job) => {
     console.log(job);
 
     return (
-        <div className="relative border p-5 rounded-lg bg-[#0088540c] flex flex-col">
-            {/* Charge icon */}
-            <div className="absolute top-3 right-3">
-                <BsFillLightningChargeFill className="text-[#008854] text-xl" />
-            </div>
-            {/* Charge icon end */}
+        <div className="p-5 rounded-lg bg-[#0088540c] flex flex-col">
             {/* Header area */}
             <div className="flex gap-2">
                 <div className="w-[60px] h-[60px]">
@@ -86,11 +80,15 @@ const HotJobCard = (job) => {
             <div className="flex flex-col items-center justify-between mt-5 gap-2">
                 <div className="btn bg-[#c9e4db] w-full">
                     <h1 className="text-lg font-bold flex items-center text-[#008854]">
-                        {salaryRange.min}-{salaryRange.max} {salaryRange?.currency.toUpperCase()}
+                        {salaryRange.min}-{salaryRange.max}{" "}
+                        {salaryRange?.currency.toUpperCase()}
                     </h1>
                 </div>
                 <div className="w-full">
-                    <Link to={`/jobs/${_id}`} className="btn font-bold w-full bg-[#0088542c] text-[#008854]">
+                    <Link
+                        to={`/jobs/${_id}`}
+                        className="btn font-bold w-full bg-[#0088542c] text-[#008854]"
+                    >
                         Apply Now
                     </Link>
                 </div>
