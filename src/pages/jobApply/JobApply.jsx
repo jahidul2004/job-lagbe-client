@@ -61,12 +61,17 @@ const JobApply = () => {
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left w-full md:w-1/2 border rounded-lg p-4">
-                    <h1>Hello</h1>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Ducimus eveniet doloribus dolorum tempore
-                        similique totam veritatis. Quas placeat iure laborum!
+                <div className="text-center lg:text-left w-full md:w-1/2 rounded-lg p-4">
+                    <h1 className="text-5xl font-bold mb-4">
+                        Apply For This Job
+                    </h1>
+                    <p className="font-semibold">
+                        Your one-stop solution for finding the perfect job or
+                        hiring the right talent! Explore thousands of job
+                        opportunities across various industries, or connect with
+                        skilled professionals to grow your team. Whether you're
+                        a job seeker or an employer, Job Lagbe is here to
+                        simplify your journey.
                     </p>
                 </div>
                 <div className="my-10 mx-auto card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl md:w-1/2">
