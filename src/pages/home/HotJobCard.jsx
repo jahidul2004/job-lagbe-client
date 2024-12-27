@@ -66,7 +66,7 @@ const HotJobCard = (job) => {
                             <p
                                 key={index}
                                 title={requirement}
-                                className="bg-[#00885428] text-sm px-2 py-1 rounded font-semibold text-[#000000ab]"
+                                className="bg-[#00885428] text-sm px-2 py-1 rounded font-semibold text-[#008854]"
                             >
                                 {truncatedText}
                             </p>
@@ -77,17 +77,17 @@ const HotJobCard = (job) => {
             {/* Description area end */}
 
             {/* Footer area */}
-            <div className="flex flex-col items-center justify-between mt-5 gap-2">
-                <div className="btn bg-[#c9e4db] w-full">
-                    <h1 className="text-lg font-bold flex items-center text-[#008854]">
+            <div className="flex items-center justify-between mt-4 gap-2">
+                <div className="w-1/2">
+                    <h1 className="btn btn-success border-none text-md w-full font-bold flex items-center text-white">
                         {salaryRange.min}-{salaryRange.max}{" "}
                         {salaryRange?.currency.toUpperCase()}
                     </h1>
                 </div>
-                <div className="w-full">
+                <div className="w-1/2">
                     <Link
                         to={`/jobs/${_id}`}
-                        className="btn font-bold w-full bg-[#0088542c] text-[#008854]"
+                        className="btn btn-success w-full border-none font-bold text-white"
                     >
                         Apply Now
                     </Link>
