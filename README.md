@@ -1,2 +1,2 @@
-#Job Lagbe Client
+#Job Lagbe
 ######A job seeking Platform
