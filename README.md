@@ -1,2 +1,2 @@
 #Job Lagbe
-######A job seeking Platform
+######A job seeking Platform.
