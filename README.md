@@ -69,4 +69,4 @@ Contributions are welcome! Feel free to submit a pull request.
 
 ---
 
-✉️ **Contact:** Your email or social links
+✉️ **Contact:** islamjahiduljihad@gmail.com
