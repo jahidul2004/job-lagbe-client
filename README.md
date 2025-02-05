@@ -40,19 +40,13 @@ Job Lagbe is a job portal where users can search for and post jobs. It provides 
 
 ### 🔹 Run Locally:
 ```bash
-# Clone the repository
-git clone https://github.com/your-repo-url.git
-cd job-lagbe
-
-# Setup Client
-cd client
-npm install
+git clone https://github.com/jahidul2004/job-lagbe-client.git
+```
+```bash
+cd job-lagbe-client
+```
+```bash
 npm run dev
-
-# Setup Server
-cd server
-npm install
-npm run start
 ```
 
 ## 📜 API Routes
