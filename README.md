@@ -65,7 +65,7 @@ npm run dev
 - Server-side input validation
 
 ## ✨ Contribution
-Contributions are welcome! Feel free to submit a pull request.
+Contributions are welcome! Feel free to submit a pull requests.
 
 ---
 
